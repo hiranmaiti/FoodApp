@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FoodApp</title>
+    <style>
+      body {
+        font-family: "Garamond", serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      .navbar {
+        background-color: #222;
+        border-bottom: 1px solid #080808;
+        color: #9d9d9d;
+        padding: 10px 20px;
+      }
+
+      .navbar-header .navbar-brand {
+        color: #9d9d9d;
+        font-weight: bold;
+        text-decoration: none;
+      }
+
+      .navbar-header .navbar-brand:hover {
+        color: white;
+      }
+
+      .nav {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+      }
+
+      .nav li {
+        margin: 0 10px;
+      }
+
+      .nav a {
+        color: #9d9d9d;
+        text-decoration: none;
+        padding: 10px 15px;
+        display: block;
+        border-radius: 4px;
+      }
+
+      .nav a:hover {
+        color: white;
+        background-color: #080808;
+      }
+
+      .container-fluid {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="{% url 'FoodApp:home' %}">FoodApp</a>
+        </div>
+        <ul class="nav">
+          <li><a href="{% url 'users:profile' %}">Profile</a></li>
+          <li>
+            <form
+              id="logout-form"
+              action="{% url 'logout' %}"
+              method="post"
+              style="display: none"
+            >
+              {% csrf_token %}
+            </form>
+            <a
+              href="#"
+              onclick="document.getElementById('logout-form').submit();"
+              >Logout</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+    {% block body %} {% endblock %}
+  </body>
+</html>

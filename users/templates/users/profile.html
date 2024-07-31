@@ -1,0 +1,73 @@
+{% extends "FoodApp/base.html" %} {% block body %}
+<div class="profile-page">
+  <h1>Profile Page</h1>
+  <div class="profile-info">
+    <p><strong>Username:</strong> {{ user.username }}</p>
+    <p><strong>Email:</strong> {{ user.email }}</p>
+    <p><strong>First Name:</strong> {{ user.first_name }}</p>
+    <p><strong>Last Name:</strong> {{ user.last_name }}</p>
+    <p><strong>Date Joined:</strong> {{ user.date_joined }}</p>
+    <p><strong>Last Login:</strong> {{ user.last_login }}</p>
+  </div>
+</div>
+
+<style>
+  body {
+    font-family: "Garamond", serif;
+    background-color: #e9ecef;
+    margin: 0;
+    padding: 0;
+  }
+
+  .profile-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+    margin: 20px auto;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .profile-page:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .profile-page h1 {
+    margin-bottom: 24px;
+    font-size: 28px;
+    color: #343a40;
+    text-align: center;
+  }
+
+  .profile-info {
+    width: 100%;
+    text-align: left;
+  }
+
+  .profile-info p {
+    margin: 10px 0;
+    font-size: 18px;
+    color: #495057;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .profile-info p strong {
+    color: #212529;
+    min-width: 120px;
+  }
+
+  .profile-info p::after {
+    content: "";
+    flex: 1;
+    border-bottom: 1px dashed #ced4da;
+    margin-left: 10px;
+  }
+</style>
+{% endblock %}
